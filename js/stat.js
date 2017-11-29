@@ -10,7 +10,7 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Ура вы победили!', 150, 30);
   ctx.fillText('Список результатов: ', 150, 50);
 
-  function getMax(arr) {
+  var getMax = function (arr) {
     var max = -1;
 
     for (var i = 0; i < arr.length; i++) {
@@ -20,11 +20,11 @@ window.renderStatistics = function (ctx, names, times) {
       }
     }
     return max;
-  }
+  };
 
   var max = getMax(times);
 
-  function createGraphs() {
+  var createGraphs = function () {
     var barWidth = 40;
     var indent = 80;
     var initialX = 190;
@@ -46,7 +46,7 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillText(times[i].toFixed(0), initialX + indent * i - barWidth, initialY - times[i] * step - 10);
       ctx.fillText(names[i], initialX + indent * i - barWidth, initialY + lineHeight);
     }
-  }
+  };
 
   createGraphs();
 
