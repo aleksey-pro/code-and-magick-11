@@ -1,4 +1,6 @@
-window.utils = (function() {
+'use strict';
+
+window.utils = (function () {
 
   return {
     getRandom: function (arr) {
@@ -8,6 +10,6 @@ window.utils = (function() {
       var randNum = getRandomNum(0, arr.length - 1);
       return arr[randNum];
     }
-  }
+  };
 
 })();

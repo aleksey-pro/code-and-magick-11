@@ -1,7 +1,7 @@
 'use strict';
 
 
-window.renderWizards = (function(){
+window.renderWizards = (function () {
 
   var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
   var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
@@ -66,8 +66,6 @@ window.renderWizards = (function(){
 
   var similarListElement = setupWizard.querySelector('.setup-similar-list');
   fillElements(similarListElement);
-
-
 
   // Объект с экспортируемыми массивами цветов и методами для покраски элементов в диалоге
   return {

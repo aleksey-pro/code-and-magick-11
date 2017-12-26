@@ -1,3 +1,5 @@
+'use strict';
+
 (function () {
 
   var setupDialogElement = document.querySelector('.setup');
@@ -46,10 +48,9 @@
         // сразу же событие click чтобы эта фукция выполнилась только 1 раз, произошла только 1 проверка.
 
 
-        var onClickPreventDefault = function (evt) {
+        var onClickPreventDefault = function () {
           evt.preventDefault();
-          // dragged = false;
-          dialogHandle.removeEventListener('click', onClickPreventDefault)
+          dialogHandle.removeEventListener('click', onClickPreventDefault);
         };
         dialogHandle.addEventListener('click', onClickPreventDefault);
       }
