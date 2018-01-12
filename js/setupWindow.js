@@ -10,6 +10,23 @@ window.setupWindow = (function () {
   var setupClose = setupWizard.querySelector('.setup-close');
   var setupSubmit = document.querySelector('.setup-submit');
 
+  var sCoords = {};
+
+  var getStartPos = function () {
+    var style = getComputedStyle(setupWizard);
+    var coords = {
+      x: style.left,
+      y: style.top
+    }
+    sCoords = Object.assign(coords);
+    return sCoords;
+  };
+
+  var setStartPos = function () {
+    setupWizard.style.left = sCoords.x;
+    setupWizard.style.top = sCoords.y;
+  };
+
   var onPopupEscPress = function (evt) {
     if (evt.keyCode === ESC_KEYCODE) {
       closePopup();
@@ -25,11 +42,13 @@ window.setupWindow = (function () {
   var openPopup = function () {
     setupWizard.classList.remove('hidden');
     document.addEventListener('keydown', onPopupEscPress);
+    getStartPos();
   };
 
   var closePopup = function () {
     setupWizard.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
+    setStartPos();
   };
 
   setupOpen.addEventListener('click', function () {
