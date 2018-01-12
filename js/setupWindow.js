@@ -17,7 +17,7 @@ window.setupWindow = (function () {
     var coords = {
       x: style.left,
       y: style.top
-    }
+    };
     sCoords = Object.assign(coords);
     return sCoords;
   };
