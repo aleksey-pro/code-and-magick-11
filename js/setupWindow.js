@@ -66,9 +66,7 @@ window.setupWindow = (function () {
   });
 
   setupClose.addEventListener('keydown', onPopupEnterPress);
-
   setupSubmit.addEventListener('keydown', onPopupEnterPress);
-
   var nameInput = document.querySelector('input[name="username"]');
 
   var onInputFocus = function (evt) {

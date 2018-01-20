@@ -60,9 +60,8 @@ window.renderWizards = (function () {
       fragment.appendChild(renderWizard(wizards[i]));
     }
     elem.appendChild(fragment);
+    setupWizard.querySelector('.setup-similar').classList.remove('hidden');
   };
-
-  setupWizard.querySelector('.setup-similar').classList.remove('hidden');
 
   var similarListElement = setupWizard.querySelector('.setup-similar-list');
   fillElements(similarListElement);
@@ -75,7 +74,13 @@ window.renderWizards = (function () {
     }),
     arrColorFireball: FIREBALL_COLORS.map(function (elem) {
       return objColorFireball[elem];
-    })
+    }),
+    fillElement: function (elem, color) {
+      elem.style.fill = color;
+    },
+    changeElementBackground: function (elem, color) {
+      elem.style.backgroundColor = color;
+    }
   };
 
 })();

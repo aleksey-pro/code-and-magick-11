@@ -1,27 +1,6 @@
 'use strict';
 
-window.setup = (function () {
-
-  // setup wizard copy
-
-  var setupWizard = document.querySelector('.setup');
-  var wizardExample = setupWizard.querySelector('.setup-wizard');
-  var wizardCoat = wizardExample.querySelector('.wizard-coat');
-  var wizardEyes = wizardExample.querySelector('.wizard-eyes');
-  var fireball = setupWizard.querySelector('.setup-fireball-wrap');
-
-  wizardCoat.addEventListener('click', function (evt) {
-    evt.target.style.fill = window.utils.getRandom(window.renderWizards.arrColorCoat);
-  });
-
-  wizardEyes.addEventListener('click', function (evt) {
-    evt.target.style.fill = window.utils.getRandom(window.renderWizards.arrColorEyes);
-  });
-
-  fireball.addEventListener('click', function (evt) {
-    evt.target.style.backgroundColor = window.utils.getRandom(window.renderWizards.arrColorFireball);
-  });
-
+(function () {
 
   //  Drag elements to bag
 
@@ -59,6 +38,40 @@ window.setup = (function () {
   artifactsElement.addEventListener('dragleave', function (evt) {
     evt.preventDefault();
   });
+
+
+  var setupWizard = document.querySelector('.setup');
+  var wizardExample = setupWizard.querySelector('.setup-wizard');
+  var wizardCoat = wizardExample.querySelector('.wizard-coat');
+  var wizardEyes = wizardExample.querySelector('.wizard-eyes');
+  var fireball = setupWizard.querySelector('.setup-fireball-wrap');
+
+
+
+  // Покраска инвентаря
+
+  var fillElement = function(evt, element, colors) {
+    evt.target.style.fill = window.utils.getRandom(colors);
+  };
+
+  var changeElementBackground = function(evt, element, colors) {
+    evt.target.style.backgroundColor = window.utils.getRandom(colors);
+  };
+
+  var onCoatClick = function () {
+    window.colorizeElement(wizardCoat, ['red', 'green', 'blue'], fillElement);
+  };
+  var onEyesClick = function () {
+    window.colorizeElement(wizardEyes, ['navy', 'teal', 'orange'], fillElement);
+  };
+  var onFireballClick = function () {
+    window.colorizeElement(fireball, ['yellow', 'black', 'aliceblue'], changeElementBackground);
+  };
+
+
+  wizardCoat.addEventListener('click', onCoatClick);
+  wizardEyes.addEventListener('click', onEyesClick);
+  fireball.addEventListener('click', onFireballClick);
 
 })();
 
